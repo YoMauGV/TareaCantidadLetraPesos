@@ -37,6 +37,7 @@ Module Program
         Console.WriteLine("Centenas en texto: " & centenastxt)
         Console.WriteLine("Unidades de Millar en texto: " & unidadesMillartxt)
         Console.WriteLine("Decenas de Millar en texto: " & decenasMillartxt)
+        Console.WriteLine(decenasMillartxt & " " & unidadesMillartxt & " MIL " & centenastxt & " " & decenastxt & " " & unidadestxt)
     End Sub
 
     Function NombreUnidades(numero As Integer) As String
