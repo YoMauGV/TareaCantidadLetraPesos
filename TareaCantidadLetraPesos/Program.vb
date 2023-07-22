@@ -185,7 +185,7 @@ Module Program
             unid = unid / 1000
             dece = dece / 1000
         End If
-        If dece > 30 And unid <> 0 Then
+        If dece > 20 And unid <> 0 Then
             Return True
         Else
             Return False
