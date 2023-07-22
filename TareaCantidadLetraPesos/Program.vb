@@ -7,8 +7,6 @@ Module Program
         Console.WriteLine("Digite una cantidad entre 0 y 99999: ")
         Dim cantidad As Single = Single.Parse(Console.ReadLine())
 
-        Console.WriteLine("La cantidad en numero es: " & cantidad)
-
         Dim centavos As Single = cantidad Mod 1
         centavos = Math.Round(centavos, 2)
         cantidad = cantidad - centavos
@@ -22,16 +20,7 @@ Module Program
         cantidad = cantidad - unidadesMillar
         Dim decenasMillar As Integer = cantidad Mod 100000
         cantidad = cantidad - decenasMillar
-        Console.WriteLine("Centavos: " & centavos)
-        Console.WriteLine("Unidades: " & unidades)
-        Console.WriteLine("Lleva Y: " & LlevaY(unidades, decenas, False))
-        Console.WriteLine("Decenas: " & decenas)
-        Console.WriteLine("Es Especial: " & EsEspecial(unidades, decenas, False))
-        Console.WriteLine("Centenas: " & centenas)
-        Console.WriteLine("Unidades de Millar: " & unidadesMillar)
-        Console.WriteLine("Lleva Y: " & LlevaY(unidadesMillar, decenasMillar, True))
-        Console.WriteLine("Decenas de Millar: " & decenasMillar)
-        Console.WriteLine("Es Especial: " & EsEspecial(unidadesMillar, decenasMillar, True))
+
         Dim unidadestxt As String = NombreUnidades(unidades)
         Dim decenastxt As String = NombreDecenas(decenas)
         If EsEspecial(unidades, decenas, False) Then
@@ -48,11 +37,7 @@ Module Program
             decenasMillartxt = NumeroEspecial(unidadesMillar, decenasMillar, True)
             unidadesMillartxt = ""
         End If
-        Console.WriteLine("Unidades en texto: " & unidadestxt)
-        Console.WriteLine("Decenas en texto: " & decenastxt)
-        Console.WriteLine("Centenas en texto: " & centenastxt)
-        Console.WriteLine("Unidades de Millar en texto: " & unidadesMillartxt)
-        Console.WriteLine("Decenas de Millar en texto: " & decenasMillartxt)
+
         Dim cantidadtxt As String = ""
         If decenasMillartxt <> "" Then
             cantidadtxt = cantidadtxt & decenasMillartxt & " "
@@ -78,7 +63,7 @@ Module Program
         If unidadestxt <> "" Then
             cantidadtxt = cantidadtxt & unidadestxt & " "
         End If
-        If centenastxt <> "" Or decenastxt <> "" Or unidadestxt <> "" Then
+        If decenasMillartxt <> "" Or unidadesMillartxt <> "" Or centenastxt <> "" Or decenastxt <> "" Or unidadestxt <> "" Then
             cantidadtxt = cantidadtxt & "PESOS "
         End If
         If centavos <> 0 Then
@@ -149,7 +134,7 @@ Module Program
         ElseIf numero = 500 Then
             Return "QUINIENTOS"
         ElseIf numero = 600 Then
-            Return "SEICIENTOS"
+            Return "SEISCIENTOS"
         ElseIf numero = 700 Then
             Return "SETECIENTOS"
         ElseIf numero = 800 Then
@@ -206,7 +191,6 @@ Module Program
             Return False
         End If
     End Function
-
 
     Function NumeroEspecial(unid As Integer, dece As Integer, millar As Boolean) As String
         If millar Then
