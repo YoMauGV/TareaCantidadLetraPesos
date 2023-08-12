@@ -69,6 +69,8 @@ Module Program
         If centavos <> 0 Then
             centavos = centavos * 100
             cantidadtxt = cantidadtxt & centavos & "/100 "
+        Else
+            cantidadtxt = cantidadtxt & "00/100 "
         End If
         If decenasMillartxt <> "" Or unidadesMillartxt <> "" Or centenastxt <> "" Or decenastxt <> "" Or unidadestxt <> "" Then
             cantidadtxt = cantidadtxt & "M.N."
